@@ -5,52 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>honeybaby - 联系我们</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* 优化联系内容布局 */
-       .contact-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 30px;
-            justify-content: center; /* 新增：使内容居中 */
-        }
-
-       .contact-form {
-            width: 45%; /* 调整表单宽度 */
-            min-width: 300px; /* 新增：最小宽度 */
-        }
-
-       .contact-info {
-            width: 45%; /* 调整信息宽度 */
-            min-width: 300px; /* 新增：最小宽度 */
-        }
-
-        /* 优化表单内元素间距 */
-       .form-group {
-            margin-bottom: 25px; /* 增加间距 */
-        }
-
-        /* 优化标题样式 */
-       .contact-form h3,
-       .contact-info h3 {
-            font-size: 24px; /* 增大标题字体 */
-            margin-bottom: 25px; /* 增加标题底部间距 */
-            color: #333;
-            text-align: center; /* 标题居中 */
-        }
-
-        /* 优化信息段落样式 */
-       .contact-info p {
-            margin-bottom: 20px; /* 增加段落间距 */
-            line-height: 1.8; /* 增加行高 */
-        }
-
-        /* 优化按钮样式 */
-       .submit-btn {
-            padding: 12px 25px; /* 增大按钮内边距 */
-            font-size: 18px; /* 增大按钮字体 */
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -69,11 +23,7 @@
             </ul>
         </nav>
     </header>
-
-    <div class="hero">
-        <h1>honeybaby</h1>
-    </div>
-
+    <div class="hero"></div>
     <div class="content">
         <div class="contact-content">
             <img src="image/p2.png">
@@ -102,7 +52,6 @@
                     <p>我们已经收到您的建议，会尽快给您回复。</p>
                 </div>
             </div>
-
             <div class="contact-info">
                 <h3>联系方式</h3>
                 <p><strong>公司名称：</strong>honeybaby科技有限公司</p>
@@ -110,27 +59,20 @@
                 <p><strong>电话：</strong>123-456-7890</p>
                 <p><strong>邮箱：</strong>contact@honeybaby.com</p>
                 <p><strong>工作时间：</strong>周一至周五 9:00-18:00</p>
-                
-                <h3 style="margin-top: 30px;">关注我们</h3>
+                <h3>关注我们</h3>
                 <p>微信公众号：honeybaby-official</p>
                 <p>微博：@honeybaby官方</p>
             </div>
         </div>
     </div>
-
     <footer>
         <p>&copy; 2025 honeybaby. 保留所有权利.</p>
     </footer>
-
     <script>
-        // 汉堡菜单功能修正
         const menuToggle = document.querySelector('.menu-toggle');
         const navList = document.querySelector('header ul');
-
         menuToggle.addEventListener('click', () => {
             navList.classList.toggle('show');
-            
-            // 动画效果
             const spans = menuToggle.querySelectorAll('span');
             if (navList.classList.contains('show')) {
                 spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
@@ -142,33 +84,20 @@
                 spans[2].style.transform = 'none';
             }
         });
-
-        // 留言表单处理
         document.getElementById('feedbackForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // 表单验证
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
-            
             if (!name || !email || !message) {
                 alert('请填写所有必填字段');
                 return;
             }
-            
-            // 模拟表单提交
             const form = e.target;
             const formData = new FormData(form);
-            
-            // 在实际应用中，这里应该发送到服务器
             console.log('表单数据:', Object.fromEntries(formData));
-            
-            // 显示感谢信息
             form.style.display = 'none';
             document.getElementById('thankYouMessage').style.display = 'block';
-            
-            // 重置表单
             form.reset();
         });
     </script>

@@ -23,11 +23,7 @@
             </ul>
         </nav>
     </header>
-
-    <div class="hero">
-        <h1>honey pet</h1>
-    </div>
-
+    <div class="hero"></div>
     <div class="content">
         <div class="product-nav">
             <ul class="product-categories">
@@ -55,7 +51,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="product-section" id="companion-products" style="display:none;">
                 <div class="product">
                     <h2>陪伴系列第一代产品</h2>
@@ -74,7 +69,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="product-section" id="secretary-products" style="display:none;">
                 <div class="product">
                     <h2>秘书系列第一代产品</h2>
@@ -95,20 +89,14 @@
             </div>
         </div>
     </div>
-
     <footer>
         <p>&copy; 2025 honeybaby. 保留所有权利.</p>
     </footer>
-
     <script>
-        // 汉堡菜单功能
         const menuToggle = document.querySelector('.menu-toggle');
         const navList = document.querySelector('header ul');
-
         menuToggle.addEventListener('click', () => {
             navList.classList.toggle('show');
-            
-            // 动画效果
             const spans = menuToggle.querySelectorAll('span');
             if (navList.classList.contains('show')) {
                 spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
@@ -120,31 +108,19 @@
                 spans[2].style.transform = 'none';
             }
         });
-
-        // 产品分类切换功能
         const categoryLinks = document.querySelectorAll('.product-categories a');
-        
         categoryLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                
-                // 移除所有active类
                 categoryLinks.forEach(l => l.classList.remove('active'));
-                // 添加active类到当前点击的链接
                 link.classList.add('active');
-                
-                // 隐藏所有产品部分
                 document.querySelectorAll('.product-section').forEach(section => {
                     section.style.display = 'none';
                 });
-                
-                // 显示选中的产品部分
                 const category = link.getAttribute('data-category');
                 document.getElementById(`${category}-products`).style.display = 'block';
             });
         });
-
-        // 导航菜单高亮当前页面
         const currentPage = window.location.pathname.split('/').pop();
         document.querySelectorAll('header a').forEach(link => {
             if (link.getAttribute('href') === currentPage) {
@@ -153,4 +129,4 @@
         });
     </script>
 </body>
-</html>    
+</html>

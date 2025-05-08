@@ -56,6 +56,11 @@ header a:hover {
     color: #6bdfff;
 }
 
+header a.active {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
 .hero {
     background-color: #f0f0f0;
     background-image: url(image/bc1.png);
@@ -73,7 +78,6 @@ header a:hover {
 .hero h1 {
     font-size: 36px;
     color: #333;
-    margin-right:999vw; 
 }
 
 .content {
@@ -83,9 +87,10 @@ header a:hover {
     display: flex;
     gap: 20px;
 }
-.content img{
+
+.content img {
     width: 40vw;
-    margin:25px ;
+    margin: 25px;
 }
 
 .product-nav {
@@ -118,6 +123,7 @@ header a:hover {
 .product-categories a.active {
     color: #ff6b6b;
     border-bottom: 2px solid #ff6b6b;
+    padding-bottom: 8px;
 }
 
 .product-display {
@@ -185,13 +191,43 @@ header a:hover {
     color: #555;
 }
 
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+}
+
 .contact-form {
     background-color: white;
     padding: 30px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    margin-bottom: 30px;
     width: 60%;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.contact-info h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.contact-info strong {
+    color: #ff6b6b;
 }
 
 .form-group {
@@ -248,49 +284,6 @@ footer {
     margin-top: 40px;
 }
 
-/* 响应式设计 */
-@media only screen and (max-width: 768px) {
-    header {
-        padding: 0 5vw;
-    }
-
-    header img {
-        width: 120px;
-    }
-
-    header ul {
-        display: none;
-    }
-
-    .menu-toggle {
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        margin-left:50vw;
-    }
-
-    .menu-toggle span {
-        height: 2px;
-        width: 25px;
-        background-color: black;
-        margin: 4px 0;
-    }
-
-    .hero h1 {
-        font-size: 28px;
-    }
-
-    .content {
-        flex-direction: column;
-    }
-
-    .product-nav,
-    .product-display {
-        width: 100%;
-    }
-}
-
-/* 汉堡菜单修正 */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -306,8 +299,13 @@ footer {
     transition: all 0.3s ease;
 }
 
-/* 移动端菜单样式 */
 @media only screen and (max-width: 768px) {
+    header {
+        padding: 0 5vw;
+    }
+    header img {
+        width: 120px;
+    }
     header ul {
         display: none;
         position: absolute;
@@ -320,61 +318,98 @@ footer {
         padding: 20px 0;
         box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-
     header ul.show {
         display: flex;
     }
-
     header li {
         margin: 10px 0;
     }
-
     .menu-toggle {
         display: flex;
     }
-}
+    .hero {
+        height: 25vh;
+        margin-top: 80px;
+        background-size: cover;
+        background-position: center;
+        padding: 0;
+    }
+    .hero h1 {
+        font-size: 24px;
+    }
 
-/* 联系页面内容修正 */
-.contact-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 30px;
-}
+    /* 仅针对 index.html 页面的特定样式 */
+    body.index-page .content {
+        flex-direction: row;
+        align-items: stretch; 
+        flex-wrap: nowrap;
+        padding: 0; 
+    }
 
-.contact-info {
-    flex: 1;
-    min-width: 300px;
-    background-color: white;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+    body.index-page .content img {
+        width: 50%;
+        margin: 0; 
+        object-fit: cover; 
+    }
 
-.contact-info h3 {
-    font-size: 22px;
-    margin-bottom: 20px;
-    color: #333;
-}
+    body.index-page .product {
+        width: 50%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+    }
 
-.contact-info p {
-    margin-bottom: 15px;
-    line-height: 1.6;
-}
+    /* 其他页面样式 */
+    .content {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 5%;
+    }
 
-.contact-info strong {
-    color: #ff6b6b;
+    .product {
+        width: 100%;
+        padding: 20px;
+    }
+    .product-nav {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .product-categories {
+        width: 100%;
+        padding: 10px;
+    }
+    .product-display {
+        width: 100%;
+        margin-top: 0;
+    }
+    .product h2 {
+        font-size: 24px;
+    }
+    .product p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    .product-specs h3 {
+        font-size: 16px;
+    }
+    .product-specs li {
+        font-size: 14px;
+    }
+    .contact-form,
+    .contact-info {
+        width: 100%;
+    }
+    .contact-form h3,
+    .contact-info h3 {
+        font-size: 20px;
+    }
+    .contact-info p,
+    .form-group label,
+    .submit-btn {
+        font-size: 16px;
+    }
+    .contact-content img {
+        display: none;
+    }
 }
-
-/* 产品分类激活状态 */
-.product-categories a.active {
-    color: #ff6b6b;
-    border-bottom: 2px solid #ff6b6b;
-    padding-bottom: 8px;
-}
-
-/* 导航菜单激活状态 */
-header a.active {
-    color: #ff6b6b;
-    font-weight: bold;
-}    
