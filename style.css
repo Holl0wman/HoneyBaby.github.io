@@ -338,28 +338,35 @@ footer {
         font-size: 24px;
     }
 
-    /* 仅针对 index.html 页面的特定样式 */
     body.index-page .content {
         flex-direction: row;
-        align-items: stretch; 
         flex-wrap: nowrap;
-        padding: 0; 
+        padding: 20px 5%;
+        align-items: stretch;
+        overflow-x: auto;
     }
 
     body.index-page .content img {
         width: 50%;
-        margin: 0; 
-        object-fit: cover; 
+        height: auto;
+        margin: 0;
+        object-fit: cover;
+        align-self: stretch;
     }
 
     body.index-page .product {
         width: 50%;
-        padding: 20px;
+        padding: 15px;
         display: flex;
         flex-direction: column;
-        justify-content: center; 
+        justify-content: center;
     }
 
+    body.index-page .product p {
+        font-size: 14px;
+        line-height: 1.5;
+        overflow-y: auto;
+    }
     /* 其他页面样式 */
     .content {
         flex-direction: column;
@@ -411,5 +418,49 @@ footer {
     }
     .contact-content img {
         display: none;
+    }
+}
+@media only screen and (max-width: 768px) {
+    /* ... 其他原有样式保持不变 ... */
+
+    /* 修改 index.html 页面的特定样式 */
+    body.index-page .content {
+        display: flex;
+        flex-direction: row; /* 强制横向排列 */
+        flex-wrap: nowrap; /* 禁止换行 */
+        padding: 20px 5%;
+        align-items: stretch; /* 使两个元素高度一致 */
+        overflow: hidden; /* 隐藏溢出部分 */
+    }
+
+    body.index-page .content img {
+        width: 50%;
+        height: auto;
+        margin: 0; /* 保持图片比例 */
+        align-self: stretch;
+    }
+
+    body.index-page .product {
+        width: 50%;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 100%; /* 确保高度填充 */
+    }
+
+    body.index-page .product p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    /* 确保在非常小的屏幕上也能保持布局 */
+    @media only screen and (max-width: 480px) {
+        body.index-page .content {
+            flex-direction: row; /* 再次确认横向排列 */
+        }
+        body.index-page .product p {
+            font-size: 12px; /* 更小的字体以适应小屏幕 */
+        }
     }
 }
