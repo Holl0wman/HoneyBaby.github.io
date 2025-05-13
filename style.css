@@ -107,6 +107,13 @@ header a.active {
     display: flex;
     gap: 20px;
 }
+.content1{
+    display: flex;
+}
+.content1 img{
+    width: 80%;
+    margin: 10%;
+}
 
 .content img {
     width: 40vw;

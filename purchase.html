@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>honeybaby - 关于我们</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="index-page">
+    <header>
+        <nav>
+            <img src="image/honeybaby_logo.png" alt="honeybaby logo">
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <li><a href="index.html">关于honey baby</a></li>
+                <li><a href="products.html">产品介绍</a></li>
+                <li><a href="#">与我们合作</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+                <li><a href="purchase.html">购买界面</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="hero">
+        <img src="image/logo2.png">
+    </div>
+    <div class="content1">
+        <div>
+            <img src="image/pur1.png">
+        </div>
+        <div>
+            <img src="image/pur2.png">
+        </div>
+    </div>
+    <div class="hero2"></div>
+    <footer>
+        <p>&copy; 2025 honeybaby. 保留所有权利.</p>
+    </footer>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navList = document.querySelector('header ul');
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('show');
+            const spans = menuToggle.querySelectorAll('span');
+            if (navList.classList.contains('show')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
